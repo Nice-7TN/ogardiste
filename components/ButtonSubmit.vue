@@ -1,0 +1,9 @@
+<template>
+  <v-btn
+    color="primary-lighten-1"
+    class="text-none"
+    rounded="xl"
+    variant="flat"
+    text="Send"
+  />
+</template>
