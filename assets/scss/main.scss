@@ -1,0 +1,461 @@
+// Main SCSS file
+// This file contains global styles and animations for the application
+
+
+/* Global Classes */
+.background-animation {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.bubble{
+  --r: 1em;  /* the radius */
+  --t: 1.5em; /* the size of the tail */
+  --_p: 0;  /* the position of the tail */
+
+  background: linear-gradient(135deg,#ffaa00,#1384C5) border-box;
+  border-inline: var(--t) solid #0000;
+  border-radius: calc(var(--r) + var(--t))/var(--r);
+  border-bottom-left-radius: 0 0;
+  max-width: 300px;
+  padding: 1em;
+  place-self: start;
+  mask: 
+    radial-gradient(100% 100% at var(--_p) 0,#0000 99%,#000 102%) 
+      var(--_p) 100%/var(--t) var(--t) no-repeat,
+    linear-gradient(#000 0 0) padding-box;
+}
+
+.bubble.server-down  {
+  background: linear-gradient(135deg,#d29c12,#f60202e8) border-box;
+}
+
+.chat-container {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.click {
+  cursor: pointer;
+}
+
+.code {
+  background-color: #000000; 
+  padding: 10px; 
+  border-radius: 5px;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1.7s linear;
+}
+
+.content p {
+  text-align: justify;
+}
+
+.content-mobile {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  color: white;
+  z-index: 1;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1.7s linear;
+}
+
+.content-mobile p {
+  text-align: justify;
+}
+
+.footer {
+  position: absolute;
+  bottom: 1%;
+  color: white;
+  left: 30%;
+  right: 30%;
+  z-index: 1;
+}
+
+.footer-mobile {
+  position: absolute;
+  bottom: 1%;
+  color: white;
+  z-index: 1;
+}
+
+.jupiter {
+  animation: rotate 17s linear infinite;
+}
+
+.image-preview {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0002;
+  border: 1px solid #ddd;
+}
+
+.image-preview-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.loading-indicator {
+  text-align: left;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #c2aee8;
+  color: white;
+  margin-bottom: 0.5rem;
+  min-width: 45%;
+  max-width: 85%;
+  position: relative;
+}
+
+.mars {
+  animation: rotate 10s linear infinite;
+}
+
+.message {
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  min-width: 45%;
+  max-width: 90%;
+}
+
+.message.Bot {
+  align-self: flex-start;
+}
+
+.message.Human {
+  align-self: flex-end;
+}
+
+.message.Model {
+  align-self: flex-start;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.nuxt-link {
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffd700;
+}
+
+.nav-logo {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(34, 34, 34, 0.952);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  z-index: 100;
+  pointer-events: none;
+  transition: background 0.2s;
+  border-radius: 8px; 
+}
+
+.particles {
+  opacity: 0.8;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+  animation: explode 1.5s ease-out forwards;
+}
+
+.rocket {
+  animation: rotate 10s linear infinite reverse;
+}
+
+.satellite {
+  animation: rotate 10s linear infinite;
+}
+
+.welcome-message {
+  position: absolute;
+  top: 31%;
+  left: 55%;
+  text-align: center;
+  color: white;
+  z-index: 2;
+  animation: fadeInBuble 1.4s;
+}
+
+/* Classes Robot Section */
+// --- Variables --- //
+$hover_top: 80px;
+$hover_bottom: 30px;
+
+
+.robot {
+  position: absolute;
+  min-width: 20vw;
+  margin: 0 auto;
+}
+
+.robot.mobile.animated {
+   animation: fadeInRobotMobile 1.3s ease-in-out;
+}
+
+.robot.animated {
+  animation: fadeInRobot 1.3s ease-in-out;
+}
+.robotSizeSmall {
+  position: absolute;
+  max-width: 25vw;
+  min-width: 9vw;
+  margin: 0 auto;
+}
+
+.robotSizeSmall.mobile {
+  position: absolute;
+  max-width: 25vw;
+  min-width: 9vw;
+  margin: 0 auto;
+  transform: translate(-60%, -30%);
+}
+
+.robotSizeSmall.mobile.animated {
+  animation: fadeInRobotSizeSmallMobile 1.3s ease-in-out;
+}
+
+.robotSizeSmall.animated {
+  animation: fadeInRobotSizeSmall 1.3s ease-in-out;
+}
+/* Animations Section */
+@keyframes dots {
+  0%,
+  20% {
+    content: "";
+  }
+
+  40% {
+    content: ".";
+  }
+
+  60% {
+    content: "..";
+  }
+
+  80%,
+  100% {
+    content: "...";
+  }
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(calc(var(--dx) * 100px), calc(var(--dy) * 100px));
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+   25% {
+    opacity: 0;
+  }
+
+    50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBuble {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRobot {
+0% {
+    min-width: 11vw;
+    transform: translate(350%, 190%);
+  }
+  100% {
+  min-width: 20vw;
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes fadeInRobotSizeSmall {
+  0% {
+    min-width: 20vw;
+    transform: translate(-200%, -120%);
+  }
+  100% {
+  min-width: 9vw;
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes fadeInRobotMobile {
+0% {
+    max-width: 24vw;
+    transform: translate(30%, 275%);
+  }
+  100% {
+  max-width: 40vw;
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes fadeInRobotSizeSmallMobile {
+  0% {
+    min-width: 40vw;
+    transform: translate(-60%, -180%);
+  }
+  100% {
+  min-width: 9vw;
+    opacity: 1;
+    transform: translate(-60%, -30%);
+  }
+}
+
+.dots::after {
+  content: "";
+  display: inline-block;
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translateX(220px) translateY(130px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateX(220px) translateY(130px) rotate(180deg);
+  }
+
+  100% {
+    transform: translateX(220px) translateY(130px) rotate(360deg);
+  }
+}
+
+// Animations Robot Section
+#body{
+		animation:hover 1.1s ease-in-out 0s infinite alternate}
+
+		#head{
+		animation:hover 1.1s ease-in-out 0.05s infinite alternate}
+
+		#arms{
+		animation:hover 1.1s ease-in-out 0.1s infinite alternate}
+
+		#left_arm{
+		transform-origin:center right; 
+		animation:arms_bounce_left 1.1s ease-in-out 0s infinite alternate}
+
+		#right_arm{
+		transform-origin:center left; 
+		animation:arms_bounce_right 1.1s ease-in-out 0s infinite alternate}
+
+		#eyes ellipse{
+		transform-origin:center center; 
+		animation:eyes_blink 2s ease-out 0s infinite alternate}
+
+		#shadow{
+		transform-origin:center center; 
+		animation:shadow 1.1s ease-in-out 0s infinite alternate}
+
+@keyframes hover { 
+    0% { transform: translate3d(0,$hover_top,0) }
+    100% { transform: translate3d(0,$hover_bottom,0) }
+}
+@keyframes shadow { 
+    0% {
+        transform: translate3d(0,0,0) scale(1.5,1.2);  
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate3d(0,0,0) scale(1,1);
+        opacity: 0.2;
+    }
+}
+@keyframes arms_bounce_left { 
+    0% { transform: translate3d(0,$hover_top,0)rotate(0deg) }
+    100% { transform: translate3d(0,$hover_bottom,0)rotate(-10deg) }
+}
+@keyframes arms_bounce_right { 
+    0% { transform: translate3d(0,$hover_top,0)rotate(0deg) }
+    100% { transform: translate3d(0,$hover_bottom,0)rotate(10deg) }
+}
+@keyframes eyes_blink { 
+    0% { transform: scale(1,1) }
+    90% { transform: scale(1,1) }
+    95% { transform: scale(0.8,0) }
+    100% { transform: scale(1,1) }
+}
